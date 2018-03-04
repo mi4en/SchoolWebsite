@@ -3,6 +3,7 @@ using System.Security.Claims;
 using System.Threading.Tasks;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
+using SchoolWebsite.Entities;
 
 namespace SchoolWebsite.Models
 {
@@ -29,5 +30,9 @@ namespace SchoolWebsite.Models
         {
             return new ApplicationDbContext();
         }
+
+        public DbSet<Student> Students { get; set; }
+        public DbSet<Grade> Grades { get; set; }
+        public DbSet<Subject> Subjects { get; set; }
     }
 }

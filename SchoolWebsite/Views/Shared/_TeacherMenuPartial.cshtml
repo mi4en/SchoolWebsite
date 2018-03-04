@@ -1,0 +1,18 @@
+﻿@if (Request.IsAuthenticated && User.IsInRole("Teacher"))
+{
+    <li class="dropdown" data-teacher-menu>
+        <a href="#">
+            Teacher Menu
+            <span class="glyphicon glyphicon-chevron-down"></span>
+        </a>
+        <ul class="dropdown-menu" role="menu">
+            <li class="dropdown-header">Entities</li>
+            <li class="divider"></li>
+            <li><a href="/Teacher/Student">&nbsp;&nbsp;Student</a></li>
+            <li><a href="/Teacher/Subject">&nbsp;&nbsp;Subject</a></li>
+            <li><a href="/Teacher/Grade">&nbsp;&nbsp;Grade</a></li>
+            <li class="divider" />
+        </ul>
+    </li>
+}
+

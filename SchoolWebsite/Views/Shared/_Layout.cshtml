@@ -24,6 +24,8 @@
                     <li>@Html.ActionLink("Home", "Index", "Home")</li>
                     <li>@Html.ActionLink("About", "About", "Home")</li>
                     <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                    @Html.Partial("_TeacherMenuPartial")
+                    @Html.Partial("_StudentMenuPartial")
                 </ul>
                 @Html.Partial("_LoginPartial")
             </div>
@@ -39,6 +41,8 @@
 
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/teacher")
+    @Scripts.Render("~/bundles/student")
     @RenderSection("scripts", required: false)
 </body>
 </html>

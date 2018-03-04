@@ -26,6 +26,12 @@ namespace SchoolWebsite
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
                       "~/Content/site.css"));
+
+            bundles.Add(new ScriptBundle("~/bundles/teacher").Include(
+                     "~/Scripts/TeacherMenu.js"));
+
+            bundles.Add(new ScriptBundle("~/bundles/student").Include(
+                     "~/Scripts/StudentMenu.js"));
         }
     }
 }
