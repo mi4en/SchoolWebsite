@@ -28,10 +28,13 @@ namespace SchoolWebsite
                       "~/Content/site.css"));
 
             bundles.Add(new ScriptBundle("~/bundles/teacher").Include(
-                     "~/Scripts/TeacherMenu.js"));
+                      "~/Scripts/TeacherMenu.js"));
+
+            bundles.Add(new ScriptBundle("~/Content/schoolwebsite").Include(
+          "~/Content/navbar.css"));
 
             bundles.Add(new ScriptBundle("~/bundles/student").Include(
-                     "~/Scripts/StudentMenu.js"));
+          "~/Scripts/StudentMenu.js"));
         }
     }
 }

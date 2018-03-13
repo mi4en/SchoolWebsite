@@ -1,0 +1,5 @@
+
+SchoolWebsite/App_Data/SchoolWebsite.mdf
+SchoolWebsite/App_Data/SchoolWebsite_log.ldf
+*.mdf
+SchoolWebsite/App_Data/DefaultConnection_log.ldf

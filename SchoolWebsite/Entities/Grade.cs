@@ -1,5 +1,9 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Linq;
+using System.Web;
 
 namespace SchoolWebsite.Entities
 {
@@ -8,9 +12,9 @@ namespace SchoolWebsite.Entities
     {
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
-
+       
         [Required]
-        [Range(2, 6)]
+        [Range(2,6)]
         public int Name { get; set; }
     }
 }

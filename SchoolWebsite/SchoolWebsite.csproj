@@ -9,7 +9,7 @@
     <ProductVersion>
     </ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{A084ACC8-0039-45B4-965D-EB310CB2E4EC}</ProjectGuid>
+    <ProjectGuid>{3EFF3677-0DA6-46DE-A61F-985D1EA286AD}</ProjectGuid>
     <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
@@ -195,6 +195,15 @@
     <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="Areas\StudentUser\Controllers\UserController.cs" />
+    <Compile Include="Areas\StudentUser\StudentUserAreaRegistration.cs" />
+    <Compile Include="Areas\Teacher\Controllers\GradeController.cs" />
+    <Compile Include="Areas\Teacher\Controllers\StudentController.cs" />
+    <Compile Include="Areas\Teacher\Controllers\SubjectController.cs" />
+    <Compile Include="Areas\Teacher\Extensions\ConversionExtensions.cs" />
+    <Compile Include="Areas\Teacher\Models\EditButtonModel.cs" />
+    <Compile Include="Areas\Teacher\Models\SmallButtonModel.cs" />
+    <Compile Include="Areas\Teacher\Models\StudentModel.cs" />
     <Compile Include="Areas\Teacher\TeacherAreaRegistration.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -202,10 +211,12 @@
     <Compile Include="Entities\Grade.cs" />
     <Compile Include="Entities\Student.cs" />
     <Compile Include="Entities\Subject.cs" />
+    <Compile Include="Extensions\ICollectionExtensions.cs" />
+    <Compile Include="Extensions\ReflectionExtensions.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="App_Start\Migrations\Configuration.cs" />
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
@@ -215,6 +226,11 @@
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Logos\rsz_1rsz_schoollogo2.png" />
+    <Content Include="Content\Logos\rsz_schoollogo2.png" />
+    <Content Include="Content\Logos\Webp.net-resizeimage-184x45.png" />
+    <Content Include="Content\Logos\Webp.net-resizeimage-30x152.png" />
+    <Content Include="Content\navbar.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -228,6 +244,28 @@
     </Content>
     <Content Include="Areas\Teacher\Views\web.config" />
     <Content Include="Areas\Teacher\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\Teacher\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\Teacher\Views\Shared\_EditButtonPartial.cshtml" />
+    <Content Include="Areas\Teacher\Views\Shared\_EditButtonDetailPartial.cshtml" />
+    <Content Include="Areas\Teacher\Views\Grade\Create.cshtml" />
+    <Content Include="Areas\Teacher\Views\Grade\Delete.cshtml" />
+    <Content Include="Areas\Teacher\Views\Grade\Details.cshtml" />
+    <Content Include="Areas\Teacher\Views\Grade\Edit.cshtml" />
+    <Content Include="Areas\Teacher\Views\Grade\Index.cshtml" />
+    <Content Include="Areas\Teacher\Views\Subject\Create.cshtml" />
+    <Content Include="Areas\Teacher\Views\Subject\Delete.cshtml" />
+    <Content Include="Areas\Teacher\Views\Subject\Details.cshtml" />
+    <Content Include="Areas\Teacher\Views\Subject\Edit.cshtml" />
+    <Content Include="Areas\Teacher\Views\Subject\Index.cshtml" />
+    <Content Include="Areas\Teacher\Views\Student\Create.cshtml" />
+    <Content Include="Areas\Teacher\Views\Student\Delete.cshtml" />
+    <Content Include="Areas\Teacher\Views\Student\Details.cshtml" />
+    <Content Include="Areas\Teacher\Views\Student\Edit.cshtml" />
+    <Content Include="Areas\Teacher\Views\Student\Index.cshtml" />
+    <Content Include="Areas\StudentUser\Views\web.config" />
+    <Content Include="Areas\StudentUser\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\StudentUser\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\StudentUser\Views\User\Index.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -277,12 +315,15 @@
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Shared\_TeacherMenuPartial.cshtml" />
+    <Content Include="Views\Shared\_CreateButtonPartial.cshtml" />
+    <Content Include="Views\Shared\_BackToListButtonPartial.cshtml" />
+    <Content Include="Views\Shared\_SmallButtonPartial.cshtml" />
+    <Content Include="Views\Shared\_TableButtonsPartial.cshtml" />
     <Content Include="Views\Shared\_StudentMenuPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Areas\Teacher\Controllers\" />
-    <Folder Include="Areas\Teacher\Models\" />
+    <Folder Include="Areas\StudentUser\Models\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -308,9 +349,9 @@
         <WebProjectProperties>
           <UseIIS>True</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>60709</DevelopmentServerPort>
+          <DevelopmentServerPort>55245</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:60709/</IISUrl>
+          <IISUrl>http://localhost:55245/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

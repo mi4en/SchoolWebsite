@@ -1,0 +1,64 @@
+﻿@model IEnumerable<SchoolWebsite.Areas.Teacher.Models.StudentModel>
+@using SchoolWebsite.Areas.Teacher.Models
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.Partial("_CreateButtonPartial")
+</p>
+<table class="table table-condensed table-striped">
+    <tr class="success">
+        <th>
+            @Html.DisplayNameFor(model => model.FirstName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LastName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ClassID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NumberInClass)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Subjects)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Grades)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.FirstName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LastName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ClassID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NumberInClass)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Subject)
+            (@{@Html.DisplayFor(modelItem => item.SubjectId)})
+
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Grade)
+            (@{@Html.DisplayFor(modelItem => item.GradeId)})
+        </td>
+            @Html.Partial("_TableButtonsPartial",
+            new SmallButtonModel { Id = item.Id })
+    </tr>
+}
+
+</table>
